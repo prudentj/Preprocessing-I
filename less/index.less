@@ -50,10 +50,185 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+}
+/***Variables and MixIns***/
+
+@import url('https://fonts.googleapis.com/css?family=Jomolhari|Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@headerfont:  'Montserrat', sans-serif;
+@mainfont: 'Roboto', sans-serif;
+@primary_color:#06646B;
+@accent_color:#E87A11;
+@base_color:white;
+@buffer_margin: 3%;
+@breakpoint_phone: 500px;
+@breakpoint_tablet: 800px;
+.flexable-auto(){
+	display:flex;
+	flex-flow:row wrap;
+	justify-content: space-between;
+}
+.pad_me{
+	padding: 5% 0% 5% 0%;
+}
+.table_font_settings(){
+	font-family: main_font;
+	font-size: 4rem;
+}
+
+html{
+	font-size:62.5%;
+	h1{
+		font-size:3rem;
+	}
+	h2{
+		font-size:2rem;
+	}
+	p, a, ul, th{
+		font-size: 1.6rem;
+		font-family: @mainfont;
+	}
+
+}
+
+h1, h2, h3, h4, h5{
+	font-family:@headerfont;
+	letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+
+/*****Display for page*****/
+
+html, header
+{
+	padding:2%;
+	max-width: 100%;
+	font-size:1.6 rem;
+	nav{
+		margin-left:65%;
+
+		.flexable-auto();
+		width:35%;
+		align-content: flex-end;
+		@media (max-width: 800px){
+			margin-left:0%;
+			width:50%;
+		}
+		@media (max-width: 500px){
+			width:100%;
+			margin-left:0%;
+		}
+		a:hover{
+			color:@accent_color;
+		}
+	}
+
 }
 
 html, body {
-    height: 100%;
+
+	height: 100%;
+	width: 100%;
+	line-height: 1.5;
 }
 
+body{
+	.top_of_page{
+		.flexable-auto();
+		justify-content: space-around;
+		background: @primary_color;
+		.wizard-pic{
+			width:25%;
+			padding: 0% 2% 0% 2%;
+		}
+		div{
+			.flexable-auto();
+			flex-direction: column;
+			@media (max-width:@breakpoint_phone){
+				align-items: center;
+			}
+			h1{
+				padding: 10% 1% 10% 1%;
+				border:1px solid black;
+				background:@base_color;
+				width:61%;
+				@media (max-width:@breakpoint_phone){
+					width: 100%;
+				}
+			}
+			.mantra{
+				border-bottom:1px solid ;
+				padding-bottom: 2%;
+			}
+			p{
+				margin:3%;
+				color:@base_color;
+			}
+			.pad_me;
+			
+			
+		}//end ofleft half divider
+	}//end of top of page
+	
+	.button{
+			border:1px solid black;
+			padding-top:2px;
+			color: black;
+			font-weight: bold;
+			text-align: center;
+			width:150px;
+			height:25px;
+			background:@base_color;
+			margin:3%;
+			
+		}
+	.button:hover{
+		color:@accent_color;
+		border:@primary_color;
+		
+
+	}
+	.mid-content{
+		margin:@buffer_margin;
+		.flexable-auto();
+		justify-content: space-between;
+		.main-text{
+			width:75%;
+			.flexable-auto();
+			flex-direction: column;
+			align-items: center;
+		}		
+	}
+	.employment_table{
+		h2{
+			padding:2%;
+		}
+		border:1px solid black;
+		.my_table{
+			align-content: center;
+			h3{
+				font-size: 2rem;
+			}
+			padding:0% 3% 3% 3%;
+			.flexable-auto();
+			flex-direction: row nowrap;
+			justify-content: space-evenly;
+			align-items: center;
+			text-align:center;
+			div{
+				.flexable-auto();
+				flex-direction: row;
+				text-align: center;
+				width:100%;
+			}
+			.optional{
+				@media (max-width:@breakpoint_phone){
+				display:none;
+			}}
+		}
+	}
+
+}	
+	
